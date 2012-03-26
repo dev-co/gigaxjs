@@ -2,6 +2,8 @@
 spawn = require('child_process').spawn
 
 module.exports = (robot) ->
+  robot.router.get "/", (req, res) ->
+    res.end "<!DOCTYPE html><html><a href='https://github.com/dev-co/gigaxjs'>gigaxjs</a><body></body></html>"
   robot.router.get "/hubot/version", (req, res) ->
     res.end robot.version
   robot.router.post "/hubot/ping", (req, res) ->
