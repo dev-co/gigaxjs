@@ -1,1 +1,1 @@
-web: bin/hubot -a irc -n gigaxjs
+web: bin/hubot -a irc -n britney
