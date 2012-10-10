@@ -30,7 +30,7 @@ module.exports = (robot) ->
         msg.reply "Playing #{msg} #{song.name} by #{song.artist['#text']}"
 
   robot.hear /\!np/i, (msg) ->
-    user = user.name
+    user = msg.message.user.name
     apiKey = process.env.HUBOT_LASTFM_APIKEY
     msg.http('http://ws.audioscrobbler.com/2.0/?')
       .query(method: 'user.getrecenttracks', user: user, api_key: apiKey, format: 'json')
@@ -40,4 +40,4 @@ module.exports = (robot) ->
           msg.send results.message
           return
         song = results.recenttracks.track[0]
-        msg.reply "Playing #{msg} #{song.name} by #{song.artist['#text']}"
+        msg.reply "Playing #{song.name} by #{song.artist['#text']}"
