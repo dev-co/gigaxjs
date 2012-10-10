@@ -9,7 +9,7 @@
 #   HUBOT_LASTFM_APIKEY
 #
 # Commands:
-#   hubot what's playing <last FM user> - Returns song name and artist
+#   !lastfm <last FM user> - Returns song name and artist
 #
 # Author:
 #   guilleiguaran
@@ -27,7 +27,7 @@ module.exports = (robot) ->
           msg.send results.message
           return
         song = results.recenttracks.track[0]
-        msg.reply "Playing #{msg} #{song.name} by #{song.artist['#text']}"
+        msg.reply "Playing: #{song.name} by #{song.artist['#text']}"
 
   robot.hear /\!np/i, (msg) ->
     user = msg.message.user.name
@@ -40,4 +40,4 @@ module.exports = (robot) ->
           msg.send results.message
           return
         song = results.recenttracks.track[0]
-        msg.reply "Playing #{song.name} by #{song.artist['#text']}"
+        msg.reply "Playing: #{song.name} by #{song.artist['#text']}"
