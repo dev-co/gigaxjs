@@ -77,7 +77,7 @@ module.exports = (robot) ->
   karma = new Karma robot
 
   robot.hear /\b(\S+)\s*(\+\+|\-\-|\+1|lol|thanks|thx|gracias)(\s|$)/, (msg) ->
-    subject = msg.match[1]
+    subject = msg.match[1].replace /:/, ""
     operator = msg.match[2]
     if operator == '--'
         karma.decrement subject
